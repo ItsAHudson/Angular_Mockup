@@ -1,0 +1,70 @@
+.spacer {
+    margin-top:auto;
+}
+
+  .dashboardcard {
+    font-size:55px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .dashboardcardsubtitle {
+    font-size:15px;
+    text-align: center;
+  }
+
+  .clicker:hover {
+    cursor:pointer
+  }
+
+  .center {
+    text-align:center;
+  }
+
+  .bold {
+    font-weight: 500;
+  }
+
+  .cardfix {
+    margin-bottom:2px;
+  }
+
+.backdrop {
+    height: 1080px;
+    border-radius:5px;
+    background-color:#f0f0f0;
+}
+
+body, html {
+    background-color:white 
+}
+
+.paddingfix {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.margins{
+    padding-left:5%;
+    padding-right:5%;
+}
+
+.textAccent {
+    color:#546A7B;
+}
+
+.textAccent2 {
+    color:#1a3263;
+}
+
+.profile {
+    height: 100px;
+    width:auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cardfill {
+    background-color: #E4C3AD;
+}
+  

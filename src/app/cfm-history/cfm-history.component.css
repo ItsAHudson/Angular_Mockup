@@ -1,0 +1,30 @@
+.rounded {
+    border-radius:5px;
+}
+
+.bootSize {
+    height:60px;
+}
+
+::ng-deep .autoCompleteWidth {
+    /* Do you changes here */
+      width:auto;
+}
+
+.table {
+    background-color: rgb(184, 184, 184);
+  }
+  
+  .header-row {
+    background-color: white;
+  }
+  
+  .element-row {
+    background-color: white;
+  }
+  
+
+.centerFilters {
+  margin-left: auto;
+  margin-right: auto;
+}

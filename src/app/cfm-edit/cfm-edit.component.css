@@ -1,0 +1,14 @@
+.bootSize {
+    height:60px;
+}
+
+.scroller {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+.table th,
+.table td {
+  padding-left: 10px;
+  padding-right: 30px;
+}

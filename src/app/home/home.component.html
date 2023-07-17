@@ -1,0 +1,66 @@
+<body>
+<div class="container">
+    <br>
+    <!-- Jumbotron which is just a large text field at the top of the page -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container row">
+            <img src="" alt="" class="profile col-4">
+            <div class="col-8">
+                <h1 class="display-4">Welcome back, placeholdername</h1>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            </div>
+        </div>
+      </div>
+    <br>
+    <div>
+        <!-- This button on click calls the openAddEdit function which opens the dialog with no data loaded in order to publish new data to the API -->
+        <button mat-raised-button color="primary" (click)="openAddEdit()" class="mb-3">Add Crud</button>
+    </div>
+    <div>
+      <!-- Table being built... This table does not populate itself but is instead built out column by column -->
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          
+            <!-- First Name Column -->
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> First Name </th>
+              <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+            </ng-container>
+          
+            <!-- Last Name Column -->
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef> Last Name </th>
+              <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+            </ng-container>
+          
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+            </ng-container>
+
+            <!-- This column houses the trashcan and edit icons -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let row"> 
+                  <!-- Edit button that triggers the editCrud function from the typescript file -->
+                    <button mat-icon-button color="primary" (click)="editCrud(row)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <!-- This button calls the deleteCrud function which sends a delete request to the API based off the corresponding row -->
+                    <button mat-icon-button color="warn" (click)="deleteCrud(row.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+          </table>
+    </div>
+    <div>
+      <br>
+      <!-- Input that pulls data from the editCrud function which activates when clicking the edit button -->
+      <input type="text" [value]="element">
+    </div>
+</div>
+</body>

@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="container text-center">
+      <div class="jumbotron jumbotron-fluid mt-3">
+        <div>
+          <!-- The jumbotron where the properties would in theory populate with actual data 
+          on fraudulent activity based on logic applied to the data being ingested -->
+          <h1 class="display-4">{{ highRisk }} High Risk Cases have been closed</h1>
+          <p class="lead">{{ lowRisk }} Low Risk cases have been closed</p>
+          <h1>$2,561,492 in fraud stopped</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div>
+        <h3>Filters:</h3>
+      </div>
+      <div class="row">
+        <!-- Two basic input boxes that would filter data but currently have no filtration linked to them -->
+        <div class="col-2">
+          <input type="text" class="form-control bootSize" placeholder="Login ID">
+        </div>
+        <div class="col-2">
+          <input type="text" class="form-control bootSize" placeholder="User ID">
+        </div>
+        <!-- The autocompletes that filter data and utilize the logic built in the typescript file -->
+        <form class="col-3 autoCompleteWidth">
+          <mat-form-field>
+            <mat-label>Search Accounts</mat-label>
+            <input type="text" aria-label="Number" matInput [formControl]="myControl"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+        <form class="col-3 autoCompleteWidth">
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <input type="text" aria-label="Number" matInput [formControl]="statusControl"
+              [matAutocomplete]="statusAuto">
+            <mat-autocomplete #statusAuto="matAutocomplete">
+              <mat-option *ngFor="let statusOption of statusFiltered | async" [value]="statusOption">
+                {{ statusOption }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+        <form class="col-2 autoCompleteWidth">
+          <mat-form-field>
+            <mat-label>Case Owner</mat-label>
+            <input type="text" aria-label="Number" matInput [formControl]="caseOwnerControl"
+              [matAutocomplete]="caseOwnerAuto">
+            <mat-autocomplete #caseOwnerAuto="matAutocomplete">
+              <mat-option *ngFor="let caseOwnerOption of caseOwnerFiltered | async" [value]="caseOwnerOption">
+                {{ caseOwnerOption }}
+              </mat-option>
+            </mat-autocomplete>
+            <!-- Autocompletes End -->
+          </mat-form-field>
+        </form>
+      </div>
+      <div>
+        <!-- The table housing the data, each row when double clicked will call the function that redirects
+        the user to the edit page -->
+        <mat-table [dataSource]="dataSource" matSort class="table">
+  
+          <ng-container matColumnDef="loginID">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> LoginID </mat-header-cell>
+            <mat-cell *matCellDef="let row" (dblclick)="onRowDoubleClick(row)"> {{row.loginID}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="userID">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> UoginID </mat-header-cell>
+            <mat-cell *matCellDef="let row" (dblclick)="onRowDoubleClick(row)"> {{row.userID}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="account">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> LoginID </mat-header-cell>
+            <mat-cell *matCellDef="let row" (dblclick)="onRowDoubleClick(row)"> {{row.account}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+            <mat-cell *matCellDef="let row" (dblclick)="onRowDoubleClick(row)"> {{row.status}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let row" (dblclick)="onRowDoubleClick(row)"> {{row.name}} </mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns" class="header-row"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" class="element-row"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+  

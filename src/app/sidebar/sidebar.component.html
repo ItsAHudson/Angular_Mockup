@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Where properties of the sidenav are defined -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="isSidebarOpen">
+    <mat-toolbar>Menu</mat-toolbar>
+    <!-- Where the navigation bar is defined -->
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a mat-list-item routerLink="/cfm" routerLinkActive="active">CFM</a>
+      <a mat-list-item routerLink="/encashments" routerLinkActive="active">Encashments</a>
+      <a mat-list-item routerLink="/transaction-monitoring" routerLinkActive="active">Transaction Monitoring</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- Where the actual sidenav content is built out -->
+  <mat-sidenav-content>
+    <mat-toolbar class="sidebarcolor">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="toggleSidebar()"
+        class="toggle-button">
+        <mat-icon aria-label="Side nav toggle icon">{{ isSidebarOpen ? 'close' : 'menu' }}</mat-icon>
+      </button>
+      <span class="cursor" routerLink="/" routerLinkActive="active">FRMS</span>
+      <div class="right-buttons" *ngIf="isCFMPage">
+        <button mat-button routerLink="/cfm/details">Docusign</button>
+        <button mat-button routerLink="/history" routerLinkActive="active">History</button>
+      </div>
+      <div class="right-buttons" *ngIf="isTransaction">
+        <button mat-button routerLink="" routerLinkActive="active">Supplier Whitelist</button>
+        <button mat-button routerLink="" routerLinkActive="active">Buyer Whitelist</button>
+        <button mat-button routerLink="" routerLinkActive="active">High Risk Countries</button>
+        <button mat-button routerLink="" routerLinkActive="active">High Risk Industries</button>
+        <button mat-button routerLink="" routerLinkActive="active">Email Whitelist</button>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

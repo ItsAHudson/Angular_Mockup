@@ -1,4 +1,6 @@
 # FRMS
+The bulk of the code lies within the cfm, cfm-edit, cfm-history, crud-add-edit, home, sidebar, and transaction monitoring. All of these are components housing HTML, CSS, and Typescript/Typescript spec files. Little CSS was used and the typescript spec files were not touched (the orange TS). There is also a services dropdown, this contains the CRUD API service that is used to send and receive data to the local JSON server. Transaction Monitoring has the most up to date code along with home and crud-add-edit. 
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 

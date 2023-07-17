@@ -1,0 +1,40 @@
+{
+  "crud": [
+    {
+      "firstName": "Lenny",
+      "lastName": "Leonard",
+      "email": "LennyLeonard@yahoo.com",
+      "id": 4
+    },
+    {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "DonutLover123@gmail.com",
+      "id": 5
+    },
+    {
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "Eatmyshorts@gmail.com",
+      "id": 6
+    },
+    {
+      "firstName": "Kendall ",
+      "lastName": "Roy",
+      "email": "Number1boy@gmail.com",
+      "id": 8
+    },
+    {
+      "firstName": "Logan",
+      "lastName": "Roy",
+      "email": "GOAT@yahoo.com",
+      "id": 9
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "JDoe@yahoo.com",
+      "id": 10
+    }
+  ]
+}

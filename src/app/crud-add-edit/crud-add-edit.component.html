@@ -1,0 +1,46 @@
+
+<div mat-dialog-title>
+    <h1>Add Address</h1>
+</div>
+<!-- Popup form for adding/editing components, the onFormSubmit function sends a post/put api request -->
+<form [formGroup]="crudForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <!-- Address Field -->
+        <mat-form-field appearance="outline" class="col-4">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex: 234 Smart Street" formControlName="">
+        </mat-form-field>
+        <!-- City Field -->
+        <mat-form-field appearance="outline" class="col-4">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex: John" formControlName="">
+        </mat-form-field>
+        <div class="row">
+            <mat-form-field appearance="outline" class="col-4">
+                <mat-label>State</mat-label>
+                <input matInput placeholder="Ex: John" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-4">
+                <mat-label>Postal Code</mat-label>
+                <input matInput placeholder="Ex: Doe" formControlName="lastName">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="col-4">
+                <mat-label>Address Type</mat-label>
+                <input matInput placeholder="Ex: John" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-4">
+                <mat-label>Address Code</mat-label>
+                <input matInput placeholder="Ex: Doe" formControlName="lastName">
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <div mat-dialog-actions>
+            <!-- This button checks if there is data ? and if there is the button says update, if there is not it says save -->
+            <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+            <button mat-raised-button>Cancel</button>
+        </div>
+    </div>
+</form>

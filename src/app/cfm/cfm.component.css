@@ -1,0 +1,12 @@
+.rounded {
+    border-radius:5px;
+}
+
+.bootSize {
+    height:60px;
+}
+
+::ng-deep .autoCompleteWidth {
+      width:auto;
+}
+
